@@ -28,8 +28,8 @@
 			/* Kill the .image.featured banner behavior inside team cards */
 			#team-grid .team-card .team-avatar {
 				display: block;
-				width: 140px;
-				height: 140px;
+				width: 200px;
+				height: 200px;
 				border-radius: 50%;
 				overflow: hidden;
 				margin: 0 auto 1.2em auto;
@@ -73,15 +73,46 @@
 				gap: 1.5em;
 			}
 
+			/* PI card: centered and alone in its row */
+			#team-grid .col-12.pi-card {
+				width: 25% !important;
+				display: flex;
+				justify-content: center;
+			}
+
+			/* Team member cards: 4 per row */
+			#team-grid .col-3 {
+				width: 25% !important;
+				flex-basis: 25%;
+			}
+
 			/* Responsive: on small screens stack them nicely */
+			@media screen and (max-width: 1024px) {
+				#team-grid .col-3 {
+					width: 33.333% !important;
+					flex-basis: 33.333%;
+				}
+				#team-grid .col-12.pi-card {
+					width: 33.333% !important;
+				}
+			}
+
 			@media screen and (max-width: 736px) {
 				#team-grid .col-3 {
+					width: 50% !important;
+					flex-basis: 50%;
+				}
+				#team-grid .col-12.pi-card {
 					width: 50% !important;
 				}
 			}
 
 			@media screen and (max-width: 480px) {
 				#team-grid .col-3 {
+					width: 100% !important;
+					flex-basis: 100%;
+				}
+				#team-grid .col-12.pi-card {
 					width: 100% !important;
 				}
 			}
@@ -94,31 +125,12 @@
 			<!-- Header -->
 				<section id="header" class="wrapper">
 					<div id="logo">
-						<h1><a href="index.html">Escape Velocity</a></h1>
-						<p>A free responsive site template by HTML5 UP</p>
+						<h1><a href="index.html">Lab members</a></h1>
+						<p>Bunch of nerds</p>
 					</div>
 					<nav id="nav">
 						<ul>
 							<li><a href="index.html">Home</a></li>
-							<li>
-								<a href="#">Dropdown</a>
-								<ul>
-									<li><a href="#">Lorem ipsum</a></li>
-									<li><a href="#">Magna veroeros</a></li>
-									<li><a href="#">Etiam nisl</a></li>
-									<li>
-										<a href="#">Sed consequat</a>
-										<ul>
-											<li><a href="#">Lorem dolor</a></li>
-											<li><a href="#">Amet consequat</a></li>
-											<li><a href="#">Magna phasellus</a></li>
-											<li><a href="#">Etiam nisl</a></li>
-											<li><a href="#">Sed feugiat</a></li>
-										</ul>
-									</li>
-									<li><a href="#">Nisl tempus</a></li>
-								</ul>
-							</li>
 							<li><a href="left-sidebar.html">Left Sidebar</a></li>
 							<li><a href="right-sidebar.html">Right Sidebar</a></li>
 							<li class="current"><a href="no-sidebar.html">No Sidebar</a></li>
