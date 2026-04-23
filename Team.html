@@ -10,116 +10,192 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<!-- TEAM SECTION OVERRIDE -->
+		<style>
+			/* ── Scoped override: only affects team cards ── */
+			#team-grid .team-card {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				text-align: center;
+				padding: 1.5em 1em;
+				background: transparent;
+				border: none;
+				box-shadow: none;
+			}
+
+			/* Kill the .image.featured banner behavior inside team cards */
+			#team-grid .team-card .team-avatar {
+				display: block;
+				width: 140px;
+				height: 140px;
+				border-radius: 50%;
+				overflow: hidden;
+				margin: 0 auto 1.2em auto;
+				border: 4px solid #e8e8e8;
+				box-shadow: 0 4px 18px rgba(0,0,0,0.13);
+				flex-shrink: 0;
+				/* Undo any .image.featured inherited styles */
+				position: relative;
+			}
+
+			#team-grid .team-card .team-avatar img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center top;
+				display: block;
+				/* Reset template's img overrides */
+				border-radius: 0;
+				margin: 0;
+			}
+
+			#team-grid .team-card h3 {
+				margin: 0 0 0.4em 0;
+				font-size: 1em;
+				font-weight: 700;
+				color: #333;
+			}
+
+			#team-grid .team-card p {
+				margin: 0;
+				font-size: 0.85em;
+				color: #777;
+				line-height: 1.6;
+			}
+
+			/* Keep the row centered and well-spaced */
+			#team-grid.row {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				gap: 1.5em;
+			}
+
+			/* Responsive: on small screens stack them nicely */
+			@media screen and (max-width: 736px) {
+				#team-grid .col-3 {
+					width: 50% !important;
+				}
+			}
+
+			@media screen and (max-width: 480px) {
+				#team-grid .col-3 {
+					width: 100% !important;
+				}
+			}
+		</style>
+
 	</head>
 	<body class="no-sidebar is-preload">
 		<div id="page-wrapper">
 
 			<!-- Header -->
 				<section id="header" class="wrapper">
-
-					<!-- Logo -->
-						<div id="logo">
-							<h1><a href="index.html">Escape Velocity</a></h1>
-							<p>A free responsive site template by HTML5 UP</p>
-						</div>
-
-					<!-- Nav -->
-						<nav id="nav">
-							<ul>
-								<li><a href="index.html">Home</a></li>
-								<li>
-									<a href="#">Dropdown</a>
-									<ul>
-										<li><a href="#">Lorem ipsum</a></li>
-										<li><a href="#">Magna veroeros</a></li>
-										<li><a href="#">Etiam nisl</a></li>
-										<li>
-											<a href="#">Sed consequat</a>
-											<ul>
-												<li><a href="#">Lorem dolor</a></li>
-												<li><a href="#">Amet consequat</a></li>
-												<li><a href="#">Magna phasellus</a></li>
-												<li><a href="#">Etiam nisl</a></li>
-												<li><a href="#">Sed feugiat</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Nisl tempus</a></li>
-									</ul>
-								</li>
-								<li><a href="left-sidebar.html">Left Sidebar</a></li>
-								<li><a href="right-sidebar.html">Right Sidebar</a></li>
-								<li class="current"><a href="no-sidebar.html">No Sidebar</a></li>
-							</ul>
-						</nav>
-
+					<div id="logo">
+						<h1><a href="index.html">Escape Velocity</a></h1>
+						<p>A free responsive site template by HTML5 UP</p>
+					</div>
+					<nav id="nav">
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li>
+								<a href="#">Dropdown</a>
+								<ul>
+									<li><a href="#">Lorem ipsum</a></li>
+									<li><a href="#">Magna veroeros</a></li>
+									<li><a href="#">Etiam nisl</a></li>
+									<li>
+										<a href="#">Sed consequat</a>
+										<ul>
+											<li><a href="#">Lorem dolor</a></li>
+											<li><a href="#">Amet consequat</a></li>
+											<li><a href="#">Magna phasellus</a></li>
+											<li><a href="#">Etiam nisl</a></li>
+											<li><a href="#">Sed feugiat</a></li>
+										</ul>
+									</li>
+									<li><a href="#">Nisl tempus</a></li>
+								</ul>
+							</li>
+							<li><a href="left-sidebar.html">Left Sidebar</a></li>
+							<li><a href="right-sidebar.html">Right Sidebar</a></li>
+							<li class="current"><a href="no-sidebar.html">No Sidebar</a></li>
+						</ul>
+					</nav>
 				</section>
 
 			<!-- Main -->
 				<div id="main" class="wrapper style2">
 					<div class="title">No Sidebar</div>
 					<div class="container">
+						<div id="content">
+							<article class="box post">
+								<header class="style1">
+									<h2>Meet the Lab Team</h2>
+									<p>Core faculty, researchers, and students working together in microbial ecophysiology.</p>
+								</header>
 
-						<!-- Content -->
-							<div id="content">
-								<article class="box post">
-									<header class="style1">
-										<h2>Meet the Lab Team</h2>
-										<p>Core faculty, researchers, and students working together in microbial ecophysiology.</p>
-									</header>
-									<div class="row aln-center">
+								<!--
+									KEY CHANGE: added id="team-grid" to the row div.
+									Removed .box from section, replaced .image.featured
+									with a custom .team-avatar wrapper so the template's
+									banner styles do NOT apply.
+								-->
+								<div id="team-grid" class="row aln-center">
 
-  <div class="col-3 col-12-medium">
-    <section class="box">
-      <a href="#" class="image featured">
-        <img src="images/pic01.jpg" alt="">
-      </a>
-      <h3>Prof. First Last</h3>
-      <p>Lab Director<br>Principal Investigator</p>
-    </section>
-  </div>
-
-  <div class="col-3 col-12-medium">
-    <section class="box">
-      <a href="#" class="image featured">
-        <img src="images/pic02.jpg" alt="">
-      </a>
-      <h3>Postdoc</h3>
-      <p>Experimental evolution<br>Genomics</p>
-    </section>
-  </div>
-
-  <div class="col-3 col-12-medium">
-    <section class="box">
-      <a href="#" class="image featured">
-        <img src="images/pic03.jpg" alt="">
-      </a>
-      <h3>PhD Student</h3>
-      <p>Selection pressure<br>Adaptive trajectories</p>
-    </section>
-  </div>
-
-  <div class="col-3 col-12-medium">
-    <section class="box">
-      <a href="#" class="image featured">
-        <img src="images/pic04.jpg" alt="">
-      </a>
-      <h3>Lab Manager</h3>
-      <p>Operations<br>Coordination</p>
-    </section>
-  </div>
-
-</div>
+									<div class="col-3 col-12-medium">
+										<section class="team-card">
+											<a href="#" class="team-avatar">
+												<img src="images/pic01.jpg" alt="Prof. First Last">
+											</a>
+											<h3>Prof. First Last</h3>
+											<p>Lab Director<br>Principal Investigator</p>
+										</section>
 									</div>
-									<section class="team-summary">
-										<header class="style1">
-											<h2>Lab vision and work</h2>
-										</header>
-										<p>Our lab studies how microbes respond to environmental change, using physiology, genomics, and geochemical measurements to connect laboratory findings with real-world ecosystems.</p>
-										<p>We train students in quantitative microbial ecology, develop open tools, and collaborate across disciplines to advance research in microbial adaptation and resilience.</p>
-									</section>
-								</article>
-							</div>
 
+									<div class="col-3 col-12-medium">
+										<section class="team-card">
+											<a href="#" class="team-avatar">
+												<img src="images/pic02.jpg" alt="Postdoc">
+											</a>
+											<h3>Postdoc</h3>
+											<p>Experimental evolution<br>Genomics</p>
+										</section>
+									</div>
+
+									<div class="col-3 col-12-medium">
+										<section class="team-card">
+											<a href="#" class="team-avatar">
+												<img src="images/pic03.jpg" alt="PhD Student">
+											</a>
+											<h3>PhD Student</h3>
+											<p>Selection pressure<br>Adaptive trajectories</p>
+										</section>
+									</div>
+
+									<div class="col-3 col-12-medium">
+										<section class="team-card">
+											<a href="#" class="team-avatar">
+												<img src="images/pic04.jpg" alt="Lab Manager">
+											</a>
+											<h3>Lab Manager</h3>
+											<p>Operations<br>Coordination</p>
+										</section>
+									</div>
+
+								</div>
+
+								<section class="team-summary">
+									<header class="style1">
+										<h2>Lab vision and work</h2>
+									</header>
+									<p>Our lab studies how microbes respond to environmental change, using physiology, genomics, and geochemical measurements to connect laboratory findings with real-world ecosystems.</p>
+									<p>We train students in quantitative microbial ecology, develop open tools, and collaborate across disciplines to advance research in microbial adaptation and resilience.</p>
+								</section>
+							</article>
+						</div>
 					</div>
 				</div>
 
@@ -175,75 +251,61 @@
 						</header>
 						<div class="row">
 							<div class="col-6 col-12-medium">
-
-								<!-- Contact Form -->
-									<section>
-										<form method="post" action="#">
-											<div class="row gtr-50">
-												<div class="col-6 col-12-small">
-													<input type="text" name="name" id="contact-name" placeholder="Name" />
-												</div>
-												<div class="col-6 col-12-small">
-													<input type="text" name="email" id="contact-email" placeholder="Email" />
-												</div>
-												<div class="col-12">
-													<textarea name="message" id="contact-message" placeholder="Message" rows="4"></textarea>
-												</div>
-												<div class="col-12">
-													<ul class="actions">
-														<li><input type="submit" class="style1" value="Send" /></li>
-														<li><input type="reset" class="style2" value="Reset" /></li>
-													</ul>
-												</div>
-											</div>
-										</form>
-									</section>
-
-							</div>
-							<div class="col-6 col-12-medium">
-
-								<!-- Contact -->
-									<section class="feature-list small">
-										<div class="row">
+								<section>
+									<form method="post" action="#">
+										<div class="row gtr-50">
 											<div class="col-6 col-12-small">
-												<section>
-													<h3 class="icon solid fa-home">Mailing Address</h3>
-													<p>
-														Untitled Corp<br />
-														1234 Somewhere Rd<br />
-														Nashville, TN 00000
-													</p>
-												</section>
+												<input type="text" name="name" id="contact-name" placeholder="Name" />
 											</div>
 											<div class="col-6 col-12-small">
-												<section>
-													<h3 class="icon solid fa-comment">Social</h3>
-													<p>
-														<a href="#">@untitled-corp</a><br />
-														<a href="#">linkedin.com/untitled</a><br />
-														<a href="#">facebook.com/untitled</a>
-													</p>
-												</section>
+												<input type="text" name="email" id="contact-email" placeholder="Email" />
 											</div>
-											<div class="col-6 col-12-small">
-												<section>
-													<h3 class="icon solid fa-envelope">Email</h3>
-													<p>
-														<a href="#">info@untitled.tld</a>
-													</p>
-												</section>
+											<div class="col-12">
+												<textarea name="message" id="contact-message" placeholder="Message" rows="4"></textarea>
 											</div>
-											<div class="col-6 col-12-small">
-												<section>
-													<h3 class="icon solid fa-phone">Phone</h3>
-													<p>
-														(000) 555-0000
-													</p>
-												</section>
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="submit" class="style1" value="Send" /></li>
+													<li><input type="reset" class="style2" value="Reset" /></li>
+												</ul>
 											</div>
 										</div>
-									</section>
-
+									</form>
+								</section>
+							</div>
+							<div class="col-6 col-12-medium">
+								<section class="feature-list small">
+									<div class="row">
+										<div class="col-6 col-12-small">
+											<section>
+												<h3 class="icon solid fa-home">Mailing Address</h3>
+												<p>Untitled Corp<br />1234 Somewhere Rd<br />Nashville, TN 00000</p>
+											</section>
+										</div>
+										<div class="col-6 col-12-small">
+											<section>
+												<h3 class="icon solid fa-comment">Social</h3>
+												<p>
+													<a href="#">@untitled-corp</a><br />
+													<a href="#">linkedin.com/untitled</a><br />
+													<a href="#">facebook.com/untitled</a>
+												</p>
+											</section>
+										</div>
+										<div class="col-6 col-12-small">
+											<section>
+												<h3 class="icon solid fa-envelope">Email</h3>
+												<p><a href="#">info@untitled.tld</a></p>
+											</section>
+										</div>
+										<div class="col-6 col-12-small">
+											<section>
+												<h3 class="icon solid fa-phone">Phone</h3>
+												<p>(000) 555-0000</p>
+											</section>
+										</div>
+									</div>
+								</section>
 							</div>
 						</div>
 						<div id="copyright">
@@ -256,13 +318,12 @@
 
 		</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
 
 	</body>
 </html>
